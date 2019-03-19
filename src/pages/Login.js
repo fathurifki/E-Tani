@@ -53,6 +53,7 @@ export default class Register extends Component {
             </View>
             <View style={{flex:1 , width:"90%", alignSelf:'center'}}>
             <Button
+              onPress={() => this.props.navigation.navigate('home')}
               title="Login"
             />
             </View>
