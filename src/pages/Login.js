@@ -33,10 +33,6 @@ export default class Register extends Component {
             </View>
             <Form>  
             <View style={styles.input}>
-                <Item floatingLabel>
-                  <Label>Username</Label>
-                  <Input />
-                </Item>
               <Item floatingLabel>
                   <Label>Email</Label>
                   <Input />
