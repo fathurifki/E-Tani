@@ -7,12 +7,11 @@ import {
     Image,
     ScrollView,
     ImageBackground,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
 import {
     Header,
     Card,
-    Icon,
     ListItem,
     Text,
 } from 'react-native-elements';
@@ -20,6 +19,7 @@ import {
   Container,
   Content,
   Footer,
+  Icon,
   FooterTab,
   Button,
   CardItem,
@@ -30,6 +30,7 @@ import {
 import images from '../assets/Aurora.jpg';
 
 const {height, width} = Dimensions.get("window")
+import Tab1 from '../components/profile';
 
 export default class Profile extends Component {
     render() {
@@ -50,29 +51,16 @@ export default class Profile extends Component {
                     <Icon type="FontAwesome" name="ticket"/>            
                 </Button> 
             </CardItem>
+          
             <Tabs>
             <Tab heading={<TabHeading><Icon type="MaterialCommunityIcons" /><Text style={{color:'white'}}>Profil</Text></TabHeading>}>
+            <ScrollView>
+             <Tab1 />
+            </ScrollView>
             </Tab>
             <Tab heading={ <TabHeading><Icon type="MaterialCommunityIcons"/><Text style={{color:'white'}}>Riwayat Transaksi</Text></TabHeading>}>
             </Tab>
             </Tabs>    
-            <Content/>
-            <Footer>
-                  <FooterTab>
-                      <Button vertical>
-                          <Text style={{color:'white'}}>Beranda</Text>
-                      </Button>
-                      <Button vertical> 
-                          <Text style={{color:'white'}}>Beli</Text>
-                      </Button>
-                      <Button vertical>
-                          <Text style={{color:'white'}}>Jual</Text>
-                      </Button>
-                      <Button vertical>
-                          <Text style={{color:'white'}}>Profile</Text>
-                      </Button>
-                  </FooterTab>
-              </Footer>
         </Container>
       )
     };
