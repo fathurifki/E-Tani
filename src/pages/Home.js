@@ -130,13 +130,13 @@ export default class Home extends Component {
             <Content/>
             <Footer>
                   <FooterTab>
-                      <Button vertical>
+                      <Button vertical >
                           <Text style={{color:'white'}}>Beranda</Text>
                       </Button>
                       <Button vertical> 
                           <Text style={{color:'white'}}>Beli</Text>
                       </Button>
-                      <Button vertical>
+                      <Button vertical onPress={() => this.props.navigation.navigate('sell')}>
                           <Text style={{color:'white'}}>Jual</Text>
                       </Button>
                       <Button vertical>
