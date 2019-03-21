@@ -13,7 +13,7 @@ import Home from '../pages/Home';
 import Product from '../pages/Product';
 import Sell from '../pages/Sell';
 import Profile from '../pages/Profile';
-import CardProduct from '../components/CardProduct';
+import profile from '../components/profile';
 
 const appNavigator = createStackNavigator({
     // splash:{ screen: Splash, navigationOptions:{header:null}},
@@ -25,7 +25,7 @@ const appNavigator = createStackNavigator({
     product : { screen: Product, navigationOptions:{header:null}},
     sell : { screen: Sell, navigationOptions:{header:null}},
     profile : { screen: Profile, navigationOptions:{header:null}},
-    test : { screen: CardProduct, navigationOptions:{header:null}},
+    test : { screen: profile, navigationOptions:{header:null}},
    
 },{
     initialRouteName:'profile'
