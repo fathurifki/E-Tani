@@ -22,6 +22,8 @@ import {
   Footer,
   FooterTab,
   Item,
+  Form,
+  Textarea,
   Button
 } from 'native-base';
 import PickerProduct from '../components/picker';
@@ -52,29 +54,44 @@ export default class Product extends Component {
             </View>
             <View>
               <Card>
-                <View style={{flexDirection:'row', marginBottom: 5}}>
+                <View style={styles.textinput}>
                 <Text>Harga </Text>
-                   <TextInput style = {{ width: DEVICE_WIDTH * 0.7 }}
+                   <TextInput style = {{ marginLeft:  5, flex:1}}
                    underlineColorAndroid='rgb(255,0,0)' /> 
                 </View>
-                <View>
+                <View style={styles.textinput}>
                 <Text>Stock</Text>
-                   <TextInput underlineColorAndroid='rgb(255,0,0)' autoCorrect={false}  /> 
+                   <TextInput style = {{ marginLeft:  5, flex:1}}
+                   underlineColorAndroid='rgb(255,0,0)' autoCorrect={false}  /> 
                 </View>
-                <View>
+                <View style={styles.textinput}>
                 <Text>Berat</Text>
-                   <TextInput underlineColorAndroid='rgb(255,0,0)' autoCorrect={false}  /> 
+                   <TextInput style = {{ marginLeft:  5, flex:1}} 
+                   underlineColorAndroid='rgb(255,0,0)' autoCorrect={false}  /> 
                 </View>
                 <View>
-                <Text>Deskripsi</Text>                
+                <Text>Deskripsi</Text>
+                <Form>
+                  <Textarea rowSpan={5} bordered placeholder="Deskripsi Produk" />
+                </Form>                
                 </View>
               </Card>
             </View>
             </ScrollView>
+            <Button full success>
+               <Text style={{color:'white', fontWeight:'bold'}}>Jual Produk</Text>
+            </Button>
         </Container>
       )
     };
 }
+
+const styles = StyleSheet.create({
+   textinput:{
+     flexDirection:'row',
+     marginBottom: 5
+   },
+})
 
 /**
  *  _id: new mongoose.Types.ObjectId(),
