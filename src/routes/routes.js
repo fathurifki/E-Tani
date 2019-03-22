@@ -8,7 +8,7 @@ import {
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Cart from '../pages/Cart';
-import Checkout from '../pages/Checkout';
+import DetailProduct from '../pages/DetailProduct';
 import Home from '../pages/Home';
 import Product from '../pages/Product';
 import Sell from '../pages/Sell';
@@ -20,7 +20,7 @@ const appNavigator = createStackNavigator({
     login: { screen: Login, navigationOptions:{header:null}},
     register : { screen: Register, navigationOptions:{header:null}},
     cart : { screen: Cart, navigationOptions:{header:null}},
-    checkout : { screen: Checkout, navigationOptions:{header:null}},
+    detailproduct : { screen: DetailProduct, navigationOptions:{header:null}},
     home : { screen: Home, navigationOptions:{header:null}},
     product : { screen: Product, navigationOptions:{header:null}},
     sell : { screen: Sell, navigationOptions:{header:null}},
@@ -28,7 +28,7 @@ const appNavigator = createStackNavigator({
     test : { screen: profile, navigationOptions:{header:null}},
    
 },{
-    initialRouteName:'sell'
+    initialRouteName:'cart'
 })
 
 export default createAppContainer(appNavigator);
