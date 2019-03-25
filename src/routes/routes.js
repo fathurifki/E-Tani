@@ -28,7 +28,7 @@ const appNavigator = createStackNavigator({
     test : { screen: profile, navigationOptions:{header:null}},
    
 },{
-    initialRouteName:'cart'
+    initialRouteName:'login'
 })
 
 export default createAppContainer(appNavigator);

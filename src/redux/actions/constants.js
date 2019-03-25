@@ -1,0 +1,5 @@
+// Redux for login
+export const LOGIN_AUTHORIZATION = 'LOGIN_AUTHORIZATION'
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_OBTAINED = 'LOGIN_OBTAINED'
+export const LOGIN_CLEAR = 'LOGIN_CLEAR'
