@@ -17,8 +17,23 @@ import {
 import { Button } from 'react-native-elements';
 import  ImagesLogo from '../assets/image';
 
-export default class Register extends Component {
+// Redux Things
+import {connect} from 'react-redux';
+import { request } from '../redux/actions/login';
+
+const mapState = state => ({
+  data: state.loginreducer
+})
+
+const mapDispatch = dispatch => ({
+  request: () => dispatch(request())
+})
+
+
+class Login extends Component {
     render() {
+      const { request } = this.props
+      console.log("==SUCCESS==", request);
       return (
         <View style={{flex: 1}}>
             <View >
@@ -69,3 +84,5 @@ const styles = StyleSheet.create({
       alignSelf:'center'
   },
 })
+
+export default connect (mapDispatch, mapState)(Login)
