@@ -60,7 +60,7 @@ export default class Product extends Component {
             Description = {item.Description}
             Price = {item.Price}
             Stock = {item.Stock}
-            onPress={() => this.props.navigation.navigate('profile')}
+            onPress={() => this.props.navigation.navigate('detailproduct')}
         />
     )
 

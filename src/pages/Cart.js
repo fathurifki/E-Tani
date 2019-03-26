@@ -30,7 +30,7 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 export default class Product extends Component {
     render() {
       return (
-        <View>
+        <Container>
             <Header
                 leftComponent={{ icon: 'menu', color: '#fff' }}
                 centerComponent={{ text: 'Keranjang', style: { color: '#fff' } }}
@@ -50,7 +50,7 @@ export default class Product extends Component {
                             <Text>PALAWIJA H1 SUPER MANTAP</Text>
                         </View>
                         <View>
-                            <Text>Rp.20000</Text>
+                            <Text>Rp. 20000</Text>
                         </View>
                     </View>
                     <View style={{flex:1, flexDirection:'row', justifyContent: 'space-between', alignItems: 'center',}}>
@@ -70,9 +70,12 @@ export default class Product extends Component {
                     </View>
                     </View>
                     </Card>
-                </View>
-            </ScrollView>
-        </View>
+                    </View>
+                </ScrollView>
+                <Button full success>
+                    <Text style={{color:'white', fontWeight:'bold'}}> Checkout </Text>
+                </Button>
+        </Container>
       )
     };
 }

@@ -83,7 +83,7 @@ export default class Home extends Component {
     renderItem = ({item}) => (
         <CardComponent
             event={item.event}
-            onPress={() => this.props.navigation.navigate('profile')}
+            onPress={() => this.props.navigation.navigate('product')}
         />
     )
     render() {
@@ -130,16 +130,16 @@ export default class Home extends Component {
             <Content/>
             <Footer>
                   <FooterTab>
-                      <Button vertical >
+                      <Button vertical onPress={() => this.props.navigation.navigate('home')} >
                           <Text style={{color:'white'}}>Beranda</Text>
                       </Button>
-                      <Button vertical> 
-                          <Text style={{color:'white'}}>Beli</Text>
+                      <Button vertical onPress={() => this.props.navigation.navigate('cart')}> 
+                          <Text style={{color:'white'}}>Keranjang</Text>
                       </Button>
                       <Button vertical onPress={() => this.props.navigation.navigate('sell')}>
                           <Text style={{color:'white'}}>Jual</Text>
                       </Button>
-                      <Button vertical>
+                      <Button vertical onPress={() => this.props.navigation.navigate('profile')}>
                           <Text style={{color:'white'}}>Profile</Text>
                       </Button>
                   </FooterTab>
