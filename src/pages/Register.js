@@ -34,7 +34,7 @@ export default class Register extends Component {
             <Form>  
             <View style={styles.input}>
                 <Item floatingLabel>
-                  <Label>Username</Label>
+                  <Label>Nama Lengkap</Label>
                   <Input />
                 </Item>
               <Item floatingLabel>
