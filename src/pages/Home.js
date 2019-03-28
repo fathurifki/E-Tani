@@ -32,6 +32,24 @@ import Carousel from 'react-native-banner-carousel';
 import CardComponent from '../components/Card';
 
 
+// Redux Things
+import { connect } from 'react-redux';
+import {
+    getDataHome,
+    requestHome,
+    responseHome
+} from '../redux/actions/home';
+
+const mapState = state => ({
+    data: state.homereducer
+})
+
+
+const mapDispatch = dispatch => ({
+    request: () => dispatch(requestHome()),
+    fetch: () => dispatch(getDataHome())
+})
+
 const BannerWidth = 150;
 const BannerHeight = 100;
 
@@ -68,8 +86,15 @@ const datas = [
     },
 ]
 
-export default class Home extends Component {
+class Home extends Component {
    
+    componentDidMount(){
+        const{request} = this.props
+        request()
+        console.log("===Data===", fetch);
+    }
+
+
     renderPage(image, index) {
         return (
             <View key={index}>
@@ -87,6 +112,7 @@ export default class Home extends Component {
         />
     )
     render() {
+        const {request, fetch} = this.props
       return (
         <Container>
             <Header
@@ -156,3 +182,5 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     } 
 })
+
+export default connect (mapState, mapDispatch)(Home)

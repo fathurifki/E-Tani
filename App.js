@@ -6,18 +6,26 @@
  * @flow
  */
 
-import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { Provider } from 'react-redux';
+import NavigationService from './src/redux/NavigationService';
+import { PersistGate } from 'redux-persist/integration/react';
+import store,{persistor} from './src/redux/store';
 import Routes from './src/routes/routes';
-import store from './src/redux/store';
+import React, {Component} from 'react';
+import { Provider } from 'react-redux';
 
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Routes/>
+        <PersistGate loading = {null} persistor={persistor}>
+        <Routes 
+           ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
+        </PersistGate>
       </Provider>
     );
   }
