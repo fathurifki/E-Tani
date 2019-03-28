@@ -14,9 +14,28 @@ import {
 import { Button } from 'react-native-elements';
 import  ImagesLogo from '../assets/image';
 
-export default class Register extends Component {
+// Redux Things
+import { connect } from 'react-redux';
+import {
+  fillAdmission,
+  requestRegister,
+} from '../redux/actions/register';
+
+const mapState = state => ({
+    data: state.registerreducer
+})
+
+const mapDispatch = dispatch => ({
+    setData: (field, values) => dispatch(fillAdmission(field, values)),
+    request: () => dispatch(requestRegister())
+})
+
+
+class Register extends Component {
 
     render() {
+      const {request, setData} = this.props
+      console.log("==TEST==", request, setData);
       return (
         <View >
             <View>
@@ -39,11 +58,11 @@ export default class Register extends Component {
                 </Item>
               <Item floatingLabel>
                   <Label>Email</Label>
-                  <Input />
+                  <Input onChangeText={text => setData('email', text)}/>
                 </Item>
             <Item floatingLabel>
                   <Label>Password</Label>
-                  <Input secureTextEntry={true}/>
+                  <Input secureTextEntry={true} onChangeText={text => setData('password', text)}/>
                 </Item>
             </View>
             </Form>
@@ -51,6 +70,7 @@ export default class Register extends Component {
             <View style={{width:"90%", alignSelf:'center', padding: 10,}}>
             <Button
               title="Sign Up"
+              onPress={() => request()}
             />
             </View>
         </View>
@@ -69,3 +89,5 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
   },
 })
+
+export default connect (mapState, mapDispatch)(Register)

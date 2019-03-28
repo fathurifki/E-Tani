@@ -1,3 +1,9 @@
+/**
+ * E-tani 2019
+ * Copyright Reserved
+ * Any Commit Should be tell to author 
+ */
+
 import React, { Component } from 'react';
 import {
     View,
@@ -6,7 +12,7 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 import {
   Item,
@@ -19,21 +25,23 @@ import  ImagesLogo from '../assets/image';
 
 // Redux Things
 import {connect} from 'react-redux';
-import { request } from '../redux/actions/login';
+import {
+  loginAuthorization,
+  loginrequest
+} from '../redux/actions/login';
 
 const mapState = state => ({
-  data: state.loginreducer
+   data: state.loginreducer
 })
-
 const mapDispatch = dispatch => ({
-  request: () => dispatch(request())
+    setData: (field, values) => dispatch(loginAuthorization(field, values)),
+    request: () => dispatch(loginrequest())
 })
-
 
 class Login extends Component {
     render() {
-      const { request } = this.props
-      console.log("==SUCCESS==", request);
+      const { request, setData } = this.props
+      console.log("==TEST==", request);
       return (
         <View style={{flex: 1}}>
             <View >
@@ -50,11 +58,11 @@ class Login extends Component {
             <View style={styles.input}>
               <Item floatingLabel>
                   <Label>Email</Label>
-                  <Input />
+                  <Input onChangeText={text => setData('email', text)}/>
                 </Item>
             <Item floatingLabel>
                   <Label>Password</Label>
-                  <Input secureTextEntry={true}/>
+                  <Input secureTextEntry={true} onChangeText={text => setData('password', text)}/>
                 </Item>
             </View>
             </Form>
@@ -64,7 +72,7 @@ class Login extends Component {
             </View>
             <View style={{flex:1 , width:"90%", alignSelf:'center'}}>
             <Button
-              onPress={() => this.props.navigation.navigate('home')}
+              onPress={()=> request()}
               title="Login"
             />
             </View>
@@ -85,4 +93,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect (mapDispatch, mapState)(Login)
+export default connect (mapState, mapDispatch)(Login)

@@ -1,23 +1,31 @@
 // Redux for login
 export const LOGIN_AUTHORIZATION = 'LOGIN_AUTHORIZATION'
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_OBTAINED = 'LOGIN_OBTAINED'
+export const LOGIN_RESPONSE = 'LOGIN_RESPONSE'
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_CLEAR = 'LOGIN_CLEAR'
 
 // Redux for Register
 export const REGISTER_ENROLLMENT = 'REGISTER_ENROLLMENT'
+export const REGISTER_RESPONSE = 'REGISTER_RESPONSE'
 export const REGISTER_REQUEST = 'REGISTER_REQUEST'
 
+// Redux for Detail Product
+export const REQUEST_DATA_PRODUCT = 'REQUEST_DATA_PRODUCT'
+export const REQUEST_ADD_PRODUCT = 'REQUEST_ADD_PRODUCT'
+export const GET_DATA_PRODUCT = 'GET_DATA_PRODUCT'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
 
 // Redux for Home
+export const HOME_RESPONSE = 'HOME_RESPONSE'
 export const GET_DATA_HOME = 'GET_DATA_HOME'
 export const HOME_REQUEST = 'HOME_REQUEST'
 
 // Redux for Cart
-export const GET_DATA_CART = 'GET_DATA_CART'
-export const CART_REQUEST = 'CART_REQUEST' 
 export const INCREMENT_CART = 'INCREMENT_CART'
 export const DECREMENT_CART = 'DECREMENT_CART'
+export const GET_DATA_CART = 'GET_DATA_CART'
+export const CART_REQUEST = 'CART_REQUEST' 
 
 // Redux for BUY
 export const GET_DATA_BUY = 'GET_DATA_BUY'
@@ -28,12 +36,12 @@ export const ASSIGN_DATA_SELL = 'ASSIGN_DATA_SELL'
 export const REQUEST_SELL = 'REQUEST_SELL'
 
 // Redux for CHECKOUT
-export const ASSIGN_AMOUNT = 'ASSIGN_AMOUNT'
 export const REQUEST_CHECKOUT = 'REQUEST_CHECKOUT'
+export const ASSIGN_AMOUNT = 'ASSIGN_AMOUNT'
 
 // Redux for Profile
+export const EDIT_REQUEST_PROFILE = 'EDIT_REQUEST_PROFILE'
+export const EDIT_DATA_PROFILE = 'EDIT_DATA_PROFILE'
 export const GET_DATA_PROFILE = 'GET_DATA_PROFILE'
 export const REQUEST_PROFILE = 'REQUEST_PROFILE'
-export const EDIT_DATA_PROFILE = 'EDIT_DATA_PROFILE'
-export const EDIT_REQUEST_PROFILE = 'EDIT_REQUEST_PROFILE'
 
