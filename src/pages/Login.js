@@ -41,7 +41,6 @@ const mapDispatch = dispatch => ({
 class Login extends Component {
     render() {
       const { request, setData } = this.props
-      console.log("==TEST==", request);
       return (
         <View style={{flex: 1}}>
             <View >

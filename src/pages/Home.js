@@ -37,17 +37,17 @@ import { connect } from 'react-redux';
 import {
     getDataHome,
     requestHome,
-    responseHome
+    responseHome,
+    detailProduct
 } from '../redux/actions/home';
 
 const mapState = state => ({
-    data: state.homereducer
+    data:state.homereducer
 })
 
 
 const mapDispatch = dispatch => ({
     request: () => dispatch(requestHome()),
-    fetch: () => dispatch(getDataHome())
 })
 
 const BannerWidth = 150;
@@ -59,39 +59,11 @@ const images = [
     "http://img.qdaily.com/article/banner/20170731145444Awq5zJK7Tok2sC3V.jpg?imageMogr2/auto-orient/thumbnail/!640x380r/gravity/Center/crop/640x380/quality/85/format/jpg/ignore-error/1"
 ]
 
-const datas = [
-    {
-        id: 1,
-        date: '12 Feb 2018',
-        event: 'Pameran 1',
-        place: 'Yogyakarta',
-    },
-    {
-        id: 2,
-        date: '13 Feb 2018',
-        event: 'Pameran 2',
-        place: 'Yogyakarta',
-    },
-    {
-        id: 3,
-        date: '14 Feb 2018',
-        event: 'Pameran 3',
-        place: 'Yogyakarta',
-    },
-    {
-        id: 4,
-        date: '15 Feb 2018',
-        event: 'Pameran 4',
-        place: 'Yogyakarta',
-    },
-]
-
 class Home extends Component {
    
     componentDidMount(){
         const{request} = this.props
         request()
-        console.log("===Data===", fetch);
     }
 
 
@@ -103,17 +75,19 @@ class Home extends Component {
         );
     }
 
-    keyExtractor = () => (item) => item.id;
+    keyExtractor = () => (item) => item.category.toString();
 
     renderItem = ({item}) => (
         <CardComponent
-            event={item.event}
-            onPress={() => this.props.navigation.navigate('product')}
+            image={item.productImage}
+            name={item.name}
+            category={item.category}
+            onPress={() => this.props.navigation.navigate({routeName:'product', params : { category: item.category}})}
         />
     )
     render() {
-        const {request, fetch} = this.props
-      return (
+        const {data} = this.props
+        return (
         <Container>
             <Header
                  leftComponent={{ icon: 'menu', color: '#fff' }}
@@ -146,9 +120,9 @@ class Home extends Component {
                     <FlatList
                         horizontal
                         style={{ height: Dimensions.get('window').width * 1 }}
-                        data={datas}
+                        data={data.item}
                         keyExtractor={this.keyExtractor}
-                        renderItem={this.renderItem}
+                        renderItem={(item) => this.renderItem(item)}
                     />
                 </View>
             </View>

@@ -1,4 +1,4 @@
-import api from '../api/apihome';
+import api from '../api/apiproduct';
 import {
     takeLatest,
     select,
@@ -8,21 +8,21 @@ import {
 import {
     GET_DATA_HOME,
     HOME_RESPONSE,
-    HOME_REQUEST
+    HOME_REQUEST,
+    DETAIL_PRODUCT
 } from '../actions/constants';
 import {
     getDataHome,
     requestHome,
-    responseHome
+    responseHome,
+    detailProduct
 } from '../actions/home';
 
 export function* homeEffect(){
-    console.log("HOME 1");
-    const {homereducer} = yield select()
-    try {
-        const data = yield call(api, homereducer.id, homereducer.name, homereducer.category, homereducer.token)
-        console.log("HOME 2", data);
-        yield put(responseHome())
+    const {loginreducer} = yield select()
+    try { 
+        const {data} = yield call(api, loginreducer.token)
+        yield put(detailProduct(data))
     } catch (error) {
         console.log("error", error);
     }

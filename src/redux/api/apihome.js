@@ -1,8 +1,10 @@
 import instance from '../../helper/helper';
 
-const homeApi = (token) => {
+const homeApi = (param, token) => {
      return instance.get('/api/product/:category', 
-        { headers: {'Authorization' : `Bearer ${token}`} 
+        { headers: {'Authorization' : `${token}`}, 
+        'Content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
     })
 }
 

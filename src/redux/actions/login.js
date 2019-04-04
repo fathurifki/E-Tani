@@ -13,7 +13,7 @@ export function loginobtain(newAuthState){
 }
 
 export function clearlogin(clear){
-    return {type:action.LOGIN_OBTAINED, clear}
+    return {type:action.LOGIN_CLEAR, clear}
 }
 
 export function response(responselogin){
