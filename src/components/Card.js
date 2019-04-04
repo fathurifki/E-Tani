@@ -19,17 +19,15 @@ export default class CardComponent extends Component {
     }
 
     render() {
-        console.log('===Props====', this.props);
       return (
         <TouchableOpacity onPress={this.props.onPress}>
            <Card
-            title={this.props.event}
-            image={require('../assets/Pic1.jpeg')}>
+            title={this.props.name}
+            image={{ uri: this.props.image }}>
             <Text style={{marginBottom: 10}}>
-                TESTING PERCOBAAN
+                {this.props.category}
             </Text>
             <Button
-                icon={<Icon name='code' color='#ffffff' />}
                 backgroundColor='#03A9F4'
                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                 title='VIEW NOW' />

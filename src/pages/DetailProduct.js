@@ -22,11 +22,15 @@ import {
     Button
 } from 'native-base';
 
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 
 export default class DetailProduct extends Component {
+
+  
+
   render() {
     return (
       <Container>

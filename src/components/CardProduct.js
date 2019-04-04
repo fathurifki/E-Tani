@@ -20,7 +20,6 @@ export default class CardComponent extends Component {
     }
 
     render() {
-        console.log('===Props====', this.props);
       return (
         <TouchableOpacity onPress={this.props.onPress}>
            <Card >
@@ -31,12 +30,15 @@ export default class CardComponent extends Component {
                >
                </Image>
                <View>
-                    <Text style={{fontWeight:'bold',marginLeft: 5}}>{this.props.Description}</Text>
+                    <Text style={{fontWeight:'bold',marginLeft: 5}}>{this.props.description}</Text>
                <View style={{flexDirection:'row', margin: 5,}}>
-                    <Text style={{color:'red', fontStyle:'italic', fontWeight: 'bold'}}>Rp </Text><Text style={{color:'red', fontStyle:'italic', fontWeight: 'bold'}}>{this.props.Price}</Text>
+                    <Text style={{color:'red', fontStyle:'italic', fontWeight: 'bold'}}>Rp </Text><Text style={{color:'red', fontStyle:'italic', fontWeight: 'bold'}}>{this.props.price}</Text>
                </View>
                <View style={{flexDirection:'row', marginLeft: 5,}}>
-                    <Text style={{color:'red'}}>Stock : </Text><Text style={{color:'red', fontStyle:'italic' , fontWeight: 'bold',}}>{this.props.Stock}</Text>
+                    <Text style={{color:'red'}}>Stock : </Text><Text style={{color:'red', fontStyle:'italic' , fontWeight: 'bold',}}>{this.props.stock}</Text>
+               </View>
+               <View style={{flexDirection:'row', marginLeft: 5,}}>
+                    <Text style={{color:'red'}}>Category : </Text><Text style={{color:'red', fontStyle:'italic' , fontWeight: 'bold',}}>{this.props.category}</Text>
                </View>
                </View>
                </View>

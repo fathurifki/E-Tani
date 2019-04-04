@@ -23,6 +23,24 @@ import {
 } from 'native-base';
 import CardProduct from '../components/CardProduct';
 
+
+// Redux Things
+import { connect } from 'react-redux';
+import {
+  categoryProduct,
+  fetchProduct,
+  requestProduct,
+  responseProduct
+} from '../redux/actions/product';
+
+const mapState = state => ({
+   data : state.productreducer
+})
+
+const mapDispatch = dispatch => ({
+   request: (category) => dispatch(requestProduct(category))
+})
+
 const datas = [
     {
         id: 1,
@@ -50,21 +68,28 @@ const datas = [
     },
 ]
 
+class Product extends Component {
 
-export default class Product extends Component {
-
-    keyExtractor = () => (item) => item.id;
+    componentDidMount(){
+        const{request, navigation} = this.props
+        request(navigation.state.params.category)
+      }
+    
+    keyExtractor = () => (item) => item.category;
 
     renderItem = ({item}) => (
         <CardProduct
-            Description = {item.Description}
-            Price = {item.Price}
-            Stock = {item.Stock}
-            onPress={() => this.props.navigation.navigate('detailproduct')}
+            description = {item.name}
+            price = {item.price}
+            stock = {item.stock}
+            category = {item.category}
+            onPress={() => this.props.navigation.navigate({routeName : 'detailproduct', params: { category: item.Category }})}
         />
     )
 
     render() {
+        const {data} = this.props
+        console.log("TESTING", data);
       return (
         <Container>
              <Header
@@ -73,11 +98,13 @@ export default class Product extends Component {
                  rightComponent={{ icon: 'home', color: '#fff' }}
             />
             <ScrollView>
+                <View>
                 <FlatList 
-                     data={datas}
+                     data={data.item}
                      keyExtractor={this.keyExtractor}
-                     renderItem={this.renderItem}
+                     renderItem={(item) => this.renderItem(item)}
                 />
+                </View>
             </ScrollView>
             <Content/>
             <Footer>
@@ -108,3 +135,5 @@ const styles = StyleSheet.create({
         fontSize: 16,  
     }
 });
+
+export default connect (mapState, mapDispatch)(Product)

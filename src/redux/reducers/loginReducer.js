@@ -2,7 +2,8 @@ import {
     LOGIN_AUTHORIZATION,
     LOGIN_CLEAR,
     LOGIN_RESPONSE,
-    LOGIN_REQUEST
+    LOGIN_REQUEST,
+    LOGIN_OBTAINED
 } from '../actions/constants';
 
 const initialState = {
@@ -19,13 +20,10 @@ const reducer =  (state = initialState, action) => {
         return { ...state, [action.field]: action.values };
     case LOGIN_REQUEST:
         return { ...state, loading:true  }
+    case LOGIN_OBTAINED:
+        return { ...state, token: action.newAuthState }
     case LOGIN_RESPONSE:
-        return { 
-        ...state,
-        token: action.token,
-        email: action.email,
-        password: action.password
-    }
+        return { ...state, token:action.responselogin.data.token}
     case LOGIN_CLEAR:
         return { 
             ...state,

@@ -1,14 +1,17 @@
-import * as action from '../actions/constants';
+import * as action from './constants';
 
-export function fetchProduct (dataProduct){
-    return {type:action.GET_DATA_PRODUCT, dataProduct}
+export function requestData (){
+    return {type:action.REQUEST_DATA_DETAIL_PRODUCT}
 }
-export function requestProduct(request){
-    return {type:action.REQUEST_DATA_PRODUCT, request}
+
+export function responseDetail(responseDataDetail){
+    return {type:action.RESPONSE_DETAIL_PRODUCT, responseDataDetail}
 }
-export function addtoCart(addProduct){
-    return {type:action.ADD_PRODUCT, addProduct}
-}
-export function requestAddCart(requestCart){
-    return {type:action.REQUEST_ADD_PRODUCT, requestCart}
+
+export function getDataDetail(getData){
+    return {type:action.GET_DETAIL_PRODUCT, getData}
+} 
+
+export function amountProduct(addDataCart){
+    return {type:action.ADD_PRODUCT, addDataCart}
 }
